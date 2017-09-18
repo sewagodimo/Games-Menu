@@ -1,0 +1,9 @@
+Game Session
+ Date: 9 18
+Time: hr0 min49
+Returning: False
+Game Selected: 90 Second Portriats
+selectiontime: 3.927907
+Game Selected: Mr Blue
+selectiontime: 5.219555
+Requested help 6.992188

@@ -1,0 +1,12 @@
+Game Session
+ Date: 9 18
+Time: 0 20
+Game Selected: Sort the Court
+selectiontime: 1.807745
+Game Selected: Mr Blue
+selectiontime: 2.486978
+Game Selected: 90 Second Portriats
+selectiontime: 3.994544
+Game Selected: Super Bugs
+selectiontime: 4.773176
+Requested help 5.833443

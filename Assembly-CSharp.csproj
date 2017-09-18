@@ -6,8 +6,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{8CAA50DD-553B-0679-48F4-9B2106C8A492}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -38,42 +39,65 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GrassRoadRace\Script\CameraMove.cs" />
-    <Compile Include="Assets\Scripts\script.cs" />
-    <None Include="Assets\DataFiles\9-16time0-55.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\net35\unity-custom\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Timeline\RuntimeEditor\UnityEngine.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityAnalytics\UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityHoloLens\RuntimeEditor\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\GrassRoadRace\Script\CameraMove.cs" />
+     <Compile Include="Assets\Scripts\script.cs" />
+     <None Include="Assets\DataFiles\session 9 18 0 58 1475479.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 43 4897522.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 49 3935769.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 45 5663748.txt" />
+     <None Include="Assets\DataFiles\9-18time0-13.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 27 312349.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 0 7449294.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 19 1764978.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 3 8115380.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 20 8617360.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 46 3906071.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 2 192967.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 47 5716448.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 18 5428198.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 59 548418.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 50 1572711.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 32 1517478.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 49 7470564.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 44 2159980.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 1 6801163.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 49 2671897.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 44 5258977.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 45 7138108.txt" />
+     <None Include="Assets\DataFiles\session 9 18 0 46 2237607.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -83,4 +107,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

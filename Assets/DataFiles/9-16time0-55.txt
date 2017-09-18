@@ -1,9 +1,0 @@
-Game Session
-Game Selected: Super Bugs
-selectiontime: 1.389967
-Game Selected: Sort the Court
-selectiontime: 2.251454
-Game Selected: Mr Blue
-selectiontime: 3.394912
-Game Selected: 90 Second Portriats
-selectiontime: 4.388527

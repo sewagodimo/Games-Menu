@@ -1,0 +1,12 @@
+Game Session
+ Date: 9 18
+Time: hr0 min50
+Returning: False
+Game Selected: Sort the Court
+selectiontime: 7.089914
+Game Rating: 1
+Game Selected: 90 Second Portriats
+selectiontime: 13.8165
+Game Rating: 0
+Requested help 18.02465
+Exited After: 21.50318 seconds

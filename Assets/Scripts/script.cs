@@ -21,6 +21,9 @@ public class script : MonoBehaviour {
 	public Text game4;
 	public GameObject help_button;
 	public GameObject help_panel;
+	public GameObject welcome_panel;
+	public GameObject rating_panel;
+	public Text rating_text;
 	//the array for the names of the games and the order in which they will laod
 	String[] gameslist;
 	int[] gamesOrder;
@@ -30,6 +33,7 @@ public class script : MonoBehaviour {
 	string filename="";
 	string score;
 	float starttime;
+	Boolean returning=false; //stores whether the user is new or returning
 	int enjoyment;
 	FileStream sessionFile;
 	String filetext="";
@@ -41,7 +45,9 @@ public class script : MonoBehaviour {
 		intialiseMenu ();
 		path = Application.dataPath + "/Datafiles/";
 		print (path);
-		filename= DateTime.Now.Date.Month+"-"+ DateTime.Now.Date.Day+"time"+DateTime.Now.Date.Hour+"-"+DateTime.Now.Minute+".txt";
+		System.Random rnd = new System.Random ();
+		int temp = rnd.Next(1, 10000000);
+		filename="session "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+" "+DateTime.Now.Date.Hour+" "+DateTime.Now.Minute+" "+temp +".txt";
 
 		if (File.Exists(filename))
 		{
@@ -52,8 +58,8 @@ public class script : MonoBehaviour {
 
 		// Create the file.
 	   sessionFile = File.Create(path+filename);
-		filetext+="Game Session";
-		//print(filename);
+		filetext+="Game Session\n Date: "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+"\nTime: hr"+DateTime.Now.Date.Hour+" min"+DateTime.Now.Minute;
+		filetext += "\nReturning: " + returning;
 
 
 	}
@@ -63,9 +69,10 @@ public class script : MonoBehaviour {
 			
 			//game1.text = gameslist [gamesOrder [0]];
 			switch(game){
-			case 1: 
+		case 1: 
 				//print(game1.text);
-				gamename=game1.text;
+			gamename = game1.text;
+
 				break;
 			case 2: 
 				//print(game2.text);
@@ -85,6 +92,8 @@ public class script : MonoBehaviour {
 		}
 			starttime=Time.time;
 		filetext+="\nGame Selected: "+gamename+"\nselectiontime: "+starttime;
+		rating_text.text = "You just played " + gamename;
+		rating_panel.SetActive (true);
 			// WRITE TO THE FILE
 			
 
@@ -118,16 +127,34 @@ public class script : MonoBehaviour {
 
 		}
 	}
+	public void onRateGame(int rating){
+		
+		filetext+="\nGame Rating: "+rating;
+		rating_panel.SetActive (false);
+
+	}
+
 	public void onHelp(){
 		help_panel.SetActive (true);
 		help_button.SetActive (false);
-		filetext += "\nRequested help " + Time.time;
+		filetext += "\nRequested help " +Time.time;
 	}
+
 	public void exitHelp(){
 		help_panel.SetActive (false);
 		help_button.SetActive (true);
 	}
+
+	public void onLoad(int player){
+		if (player == 2) {
+			returning = true; //2 means you are returning
+		} else {
+			returning = false;// 1 means you are new
+		}
+		welcome_panel.SetActive (false);
+	}
 	public void exitGame(){
+		filetext += "\nExited After: " + Time.time+" seconds";
 		
 		using (sessionFile)
 		{
@@ -195,7 +222,7 @@ public class script : MonoBehaviour {
 
 		mail.From = new MailAddress("gamesstatictics@gmail.com");
 		mail.To.Add("gamesstatictics@gmail.com");
-		mail.To.Add("edneciamat@gmail.com");
+		mail.To.Add("regina.kgatle@gmail.com");
 		mail.Subject = "GAMES SELECTION";
 		mail.Body = filetext;
 		// string filename = "screenshot.png";
