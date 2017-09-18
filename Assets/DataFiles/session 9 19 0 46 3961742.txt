@@ -1,0 +1,13 @@
+Game Session
+ Date: 9 19
+Time: hr0 min46
+Returning: False
+Game Selected: Sort the Court
+selectiontime: 17.35195
+Game duration: 4.47316Seconds
+Game Rating: 0
+Game Selected: 90 Second Portriats
+selectiontime: 23.16678
+Game duration: 4.987391Seconds
+Game Rating: 1
+Exited After: 31.76557 seconds

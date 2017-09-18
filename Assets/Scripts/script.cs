@@ -32,6 +32,8 @@ public class script : MonoBehaviour {
 	public static String gamename="";
 	string filename="";
 	string score;
+	float duration;
+	float selectiontime;
 	float starttime;
 	Boolean returning=false; //stores whether the user is new or returning
 	int enjoyment;
@@ -42,6 +44,8 @@ public class script : MonoBehaviour {
 		
 		gameslist=new string[]{"Sort the Court","Mr Blue","90 Second Portriats","Super Bugs"};
 		gamesOrder = gamesOrdering();
+		duration = 0.0f;
+		selectiontime = Time.time;
 		intialiseMenu ();
 		path = Application.dataPath + "/Datafiles/";
 		print (path);
@@ -57,9 +61,9 @@ public class script : MonoBehaviour {
 		}
 
 		// Create the file.
-	   sessionFile = File.Create(path+filename);
+		sessionFile = File.Create(path+filename);
 		filetext+="Game Session\n Date: "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+"\nTime: hr"+DateTime.Now.Date.Hour+" min"+DateTime.Now.Minute;
-		filetext += "\nReturning: " + returning;
+		filetext += "\nReturning: " +returning;
 
 
 	}
@@ -91,9 +95,11 @@ public class script : MonoBehaviour {
 	
 		}
 			starttime=Time.time;
-		filetext+="\nGame Selected: "+gamename+"\nselectiontime: "+starttime;
+		filetext+="\nGame Selected: "+gamename+"\nselectiontime: "+(Time.time-selectiontime);
 		rating_text.text = "You just played " + gamename;
 		rating_panel.SetActive (true);
+		selectiontime = Time.time;
+		duration = Time.time;//the time in which you selected the game
 			// WRITE TO THE FILE
 			
 
@@ -104,6 +110,7 @@ public class script : MonoBehaviour {
 
 	void startGame(){
 		//when the game starts
+		selectiontime = Time.time;
 		if (filename == "" || gamename == "") {
 			return;
 		} 
@@ -128,7 +135,7 @@ public class script : MonoBehaviour {
 		}
 	}
 	public void onRateGame(int rating){
-		
+		filetext+="\nGame duration: "+(Time.time-duration) +"Seconds";
 		filetext+="\nGame Rating: "+rating;
 		rating_panel.SetActive (false);
 
@@ -137,12 +144,14 @@ public class script : MonoBehaviour {
 	public void onHelp(){
 		help_panel.SetActive (true);
 		help_button.SetActive (false);
-		filetext += "\nRequested help " +Time.time;
+		filetext += "\nRequested help " +(Time.time-selectiontime);
+		selectiontime = Time.time;
 	}
 
 	public void exitHelp(){
 		help_panel.SetActive (false);
 		help_button.SetActive (true);
+		selectiontime = Time.time;
 	}
 
 	public void onLoad(int player){
@@ -152,6 +161,7 @@ public class script : MonoBehaviour {
 			returning = false;// 1 means you are new
 		}
 		welcome_panel.SetActive (false);
+		selectiontime = Time.time;
 	}
 	public void exitGame(){
 		filetext += "\nExited After: " + Time.time+" seconds";
