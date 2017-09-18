@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 77f805590d51e814baa77d4310663715
+timeCreated: 1505520244
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Scream Real
+  fontNames:
+  - Scream Real
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
