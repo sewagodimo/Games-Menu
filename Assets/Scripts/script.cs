@@ -48,7 +48,7 @@ public class script : MonoBehaviour {
 		selectiontime = Time.time;
 		intialiseMenu ();
 		path = Application.dataPath + "/Datafiles/";
-		print (path);
+
 		System.Random rnd = new System.Random ();
 		int temp = rnd.Next(1, 10000000);
 		filename="session "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+" "+DateTime.Now.Date.Hour+" "+DateTime.Now.Minute+" "+temp +".txt";
@@ -100,9 +100,8 @@ public class script : MonoBehaviour {
 		rating_panel.SetActive (true);
 		selectiontime = Time.time;
 		duration = Time.time;//the time in which you selected the game
-			// WRITE TO THE FILE
-			
-
+			// OPEN THE FILE
+		startGame();
 		
 			
 		
@@ -119,11 +118,15 @@ public class script : MonoBehaviour {
 				myprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 				myprocess.StartInfo.CreateNoWindow = true;
 				myprocess.StartInfo.UseShellExecute = false;
-				print (Application.dataPath);
+			myprocess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
 				string path = Application.dataPath;
-				myprocess.StartInfo.Arguments = "/c" + path;
+			path= path.Substring(0,path.IndexOf("/Assets"));
+
+			path= "C:\\Users\\Mosadi\\Documents\\Projects\\game_menu\\Superbugs.exe";
+			  print(path);
+			myprocess.StartInfo.Arguments = "/c" + path;
 				myprocess.EnableRaisingEvents = true;
-				Process.Start ("mono", "path");
+				//Process.Start ("mono", "path");
 				myprocess.Start ();
 				myprocess.WaitForExit ();
 				int exitCode = myprocess.ExitCode;
@@ -173,7 +176,7 @@ public class script : MonoBehaviour {
 			sessionFile.Write(info, 0, info.Length);
 		}
 		sessionFile.Close ();
-		print (filetext);
+		//print (filetext);
 		SendEmail ();
 		Application.Quit ();
 	}
@@ -217,7 +220,7 @@ public class script : MonoBehaviour {
 			list [0] = temp;
 
 		}
-		print(list[0]+" and " +list[1]+" and " +list[2]+" and " +list[3]+" it does the things " );
+		//print(list[0]+" and " +list[1]+" and " +list[2]+" and " +list[3]+" it does the things " );
 		return list;
 	}
 	void intialiseMenu(){
@@ -232,7 +235,7 @@ public class script : MonoBehaviour {
 
 		mail.From = new MailAddress("gamesstatictics@gmail.com");
 		mail.To.Add("gamesstatictics@gmail.com");
-		mail.To.Add("regina.kgatle@gmail.com");
+		mail.To.Add("kgatle.regina@gmail.com");
 		mail.Subject = "GAMES SELECTION";
 		mail.Body = filetext;
 		// string filename = "screenshot.png";

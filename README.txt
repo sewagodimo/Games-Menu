@@ -1,0 +1,9 @@
+Hey there,
+
+So I made the menu for the user study.
+
+The goal is to track the user's preferances and stats, it then sends an emailed text document of the stats to the gamestatemail account
+I struggled to open the games in Linux because I dont have the linux partition. 
+But I can open them in windows.
+
+What we need from you is to:

@@ -1,0 +1,15 @@
+Game Session
+ Date: 9 20
+Time: hr0 min22
+Returning: False
+Game Selected: Super Bugs
+selectiontime: 3.046237
+Game duration: 9.485874Seconds
+Game Rating: 0
+Requested help 13.79493
+Game Selected: Super Bugs
+selectiontime: 14.64786
+Game duration: 3.491779Seconds
+Game Rating: 0
+Requested help 5.380325
+Exited After: 92.95206 seconds
