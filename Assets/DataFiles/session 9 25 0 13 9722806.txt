@@ -1,0 +1,9 @@
+Game Session
+ Date: 9 25
+Time: hr0 min13
+Returning: False
+Game Selected: 90 Second Portriats
+selectiontime: 2.070711
+Game duration: 10.93346Seconds
+Game Rating: 1
+Exited After: 19.50352 seconds

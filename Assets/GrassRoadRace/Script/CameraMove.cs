@@ -5,12 +5,17 @@ using System.Collections;
 public class CameraMove : MonoBehaviour {
 
 	public float moveSpeed;
+	public Transform start;
+	public Transform end;
 	public GameObject mainCamera;
 
 	// Use this for initialization
+	int target= 0;
 	void Start () {
+		//transform.LookAt (start.position);
 		mainCamera.transform.localPosition = new Vector3 ( 0, 0, 0 );
 		mainCamera.transform.localRotation = Quaternion.Euler (18, 180, 0);
+		ChangeView01();
 	
 	}
 	
@@ -25,19 +30,37 @@ public class CameraMove : MonoBehaviour {
 		MoveObj ();
 		
 		if (Input.GetKeyDown (KeyCode.A)) {
-			ChangeView01();
+			
 		}
 		
 		if (Input.GetKeyDown (KeyCode.S)) {
-			ChangeView02();
+		//	ChangeView02();
 		}
 	}
 	
 	
 	void MoveObj() {		
-		float moveAmount = Time.smoothDeltaTime * moveSpeed;
-		transform.Translate ( 0f, 0f, moveAmount );	
-	}
+	//	float moveAmount = Time.smoothDeltaTime * moveSpeed;
+	//	transform.Translate ( 0f, 0f, moveAmount );
+		if (target == 0) {
+			float step = moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, start.position, step);
+         if(Vector3.Distance(transform.position,start.position) < 0.1f){
+				transform.LookAt (end.position);
+        	target=1;
+        }
+		}
+		else{
+
+			float step = moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, end.position, step);
+        if(Vector3.Distance(transform.position,end.position) < 0.1f){
+				transform.LookAt (start.position);
+        	target=0;
+        }
+		}
+		}
+	
 
 
 

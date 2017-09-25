@@ -53,15 +53,7 @@ public class script : MonoBehaviour {
 		int temp = rnd.Next(1, 10000000);
 		filename="session "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+" "+DateTime.Now.Date.Hour+" "+DateTime.Now.Minute+" "+temp +".txt";
 
-		if (File.Exists(filename))
-		{
-			//Check if this file exits
 
-			File.Delete(filename);
-		}
-
-		// Create the file.
-		sessionFile = File.Create(path+filename);
 		filetext+="Game Session\n Date: "+ DateTime.Now.Date.Month+" "+ DateTime.Now.Date.Day+"\nTime: hr"+DateTime.Now.Date.Hour+" min"+DateTime.Now.Minute;
 		filetext += "\nReturning: " +returning;
 
@@ -167,6 +159,15 @@ public class script : MonoBehaviour {
 		selectiontime = Time.time;
 	}
 	public void exitGame(){
+		if (File.Exists(filename))
+		{
+			//Check if this file exits
+
+			File.Delete(filename);
+		}
+
+		// Create the file.
+		sessionFile = File.Create(path+filename);
 		filetext += "\nExited After: " + Time.time+" seconds";
 		
 		using (sessionFile)
