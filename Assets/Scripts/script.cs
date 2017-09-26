@@ -23,6 +23,7 @@ public class script : MonoBehaviour {
 	public GameObject help_panel;
 	public GameObject welcome_panel;
 	public GameObject rating_panel;
+	public GameObject difficulty_panel;
 	public Text rating_text;
 	//the array for the names of the games and the order in which they will laod
 	String[] gameslist;
@@ -34,7 +35,7 @@ public class script : MonoBehaviour {
 	string score;
 	float duration;
 	float selectiontime;
-	float starttime;
+
 	Boolean returning=false; //stores whether the user is new or returning
 	int enjoyment;
 	FileStream sessionFile;
@@ -42,7 +43,7 @@ public class script : MonoBehaviour {
 	String path;
 	void Start () {
 		
-		gameslist=new string[]{"Sort the Court","Mr Blue","90 Second Portriats","Super Bugs"};
+		gameslist=new string[]{"Sort the Court","Mr Blue","90 Second Portriats","SuperSBugs"};
 		gamesOrder = gamesOrdering();
 		duration = 0.0f;
 		selectiontime = Time.time;
@@ -86,7 +87,7 @@ public class script : MonoBehaviour {
 			
 	
 		}
-			starttime=Time.time;
+			
 		filetext+="\nGame Selected: "+gamename+"\nselectiontime: "+(Time.time-selectiontime);
 		rating_text.text = "You just played " + gamename;
 		rating_panel.SetActive (true);
@@ -110,13 +111,22 @@ public class script : MonoBehaviour {
 				myprocess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 				myprocess.StartInfo.CreateNoWindow = true;
 				myprocess.StartInfo.UseShellExecute = false;
-			myprocess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
-				string path = Application.dataPath;
-			path= path.Substring(0,path.IndexOf("/Assets"));
-
-			path= "C:\\Users\\Mosadi\\Documents\\Projects\\game_menu\\Superbugs.exe";
+			myprocess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";//open the windows terminal
+				
+			string path = Application.dataPath; //get systems path to assets folder ie
+			// "C:\\Users\\Mosadi\\Documents\\Projects\\game_menu\\Assets";
+			path= path.Substring(0,path.IndexOf("/Assets"));//remove the /assets, you canno place other games in the assets folder
+			//the path depends on the gamename
+			if(gamename.Equals("Superbugs"))
+			path+= "\\Superbugs.exe";//check which game was chosen, the set itto path
+			if(gamename.Equals("90 Seconds Portriats"))
+				path= "Superbugs.exe";//only superbugs works for now, the links to the other games are in games are in the gameslist.pdf
+			if(gamename.Equals("Mr. Blue"))
+				path+= "\\Superbugs.exe";//would be great if we could do this in linux
+			if(gamename.Equals("Sort the court"))
+				path= "\\Superbugs.exe";
 			  print(path);
-			myprocess.StartInfo.Arguments = "/c" + path;
+			myprocess.StartInfo.Arguments = "/c" + path;//this is required in windows
 				myprocess.EnableRaisingEvents = true;
 				//Process.Start ("mono", "path");
 				myprocess.Start ();
@@ -131,8 +141,15 @@ public class script : MonoBehaviour {
 	}
 	public void onRateGame(int rating){
 		filetext+="\nGame duration: "+(Time.time-duration) +"Seconds";
-		filetext+="\nGame Rating: "+rating;
+		filetext+="\nGame Rating(0 if you liked it): "+rating;
 		rating_panel.SetActive (false);
+		difficulty_panel.SetActive (true);
+
+	}
+	public void onDifficulty(int rating){
+		
+		filetext+="\nGame Difficulty(1-easy,2-medium,3-hard): "+rating;
+		difficulty_panel.SetActive (false);
 
 	}
 
